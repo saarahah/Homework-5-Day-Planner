@@ -13,15 +13,12 @@ var hourName = "hour" + i;
 var textInput= "form" +i;
 var savebutton=  i;
 var formsDiv = "individualForms" +i;
-//console.log(i);
 
 var $hourInput = $('.container').append('<div class="time-block">' +
     '<div class="row">' +
     '<div class="col-sm hour" id='+hourName+ '></div>' + '<textarea class="textarea col-md-10" id='+formsDiv+'></textarea>' +
     '<div class="col-sm saveBtn" id='+savebutton+'></div>'
   );
-
-    //console.log(savebutton);
 
 $('#hour' + i).append('<p>'+times[i]+'</p>');
   }
@@ -34,7 +31,6 @@ $('#individualForms'+i).text(localStorage.getItem(i))
   }
 }
 
-////////////////////////////////////////////////////////////////////
   $(document).on("click", ".saveBtn", function(e) {  
     alert("hello");
     var input = $(this).siblings("textarea").val();
@@ -43,45 +39,29 @@ $('#individualForms'+i).text(localStorage.getItem(i))
 
    var hour = $(this).attr("id")
    localStorage.setItem(hour, input);
-   //.log("trying this shit: " + localStorage.getItem(hour));
   localStorage.setItem("storedResponses", JSON.stringify($(this).siblings("textarea").val()));
 });
 
 function colorHours(){
   var actualHour = moment().format("HH");
   var index = 0;
- // console.log(actualHour + "is time in 24")
 
-  // $(times[0]).siblings("textarea").val();
   for(i=9;i<times.length+9;i++){
     if(i<actualHour){
 
       $('#individualForms' + index).addClass("past")
-      
-      //code for recolor
-      //console.log(times[index]+" is less than actual hour")
    } else if (i>actualHour){
-    //code for recolor
     $('#individualForms' + index).addClass("future")
-    //console.log(times[index]+" is greater than actual hour")
    } else {
-     //code for 
-    // console.log(times[index]+" is equal to actual hour")
     $('#individualForms' + index).addClass("present")
    }
-  // console.log("index is: "+index)
    index++;
   }
-  // console.log($('#individualForms' + 0).val());
-
-  //console.log(moment().hours())
 
  }
 
 colorHours();
-//console.log(moment('MMMM Do, YYYY'));
 
-//console.log(moment().hour());
 
 
 
