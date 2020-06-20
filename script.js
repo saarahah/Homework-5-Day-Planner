@@ -32,7 +32,7 @@ $('#individualForms'+i).text(localStorage.getItem(i))
 }
 
   $(document).on("click", ".saveBtn", function(e) {  
-    alert("hello");
+    alert("saved!");
     var input = $(this).siblings("textarea").val();
 
   
