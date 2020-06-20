@@ -1,6 +1,7 @@
 var container = $(".container");
 var times = ["9", "10", "11", "12", "1", "2", "3", "4", "5"];
-var words = localStorage.getItem("fields");
+// var words = localStorage.getItem("fields");
+var storedFields = JSON.parse(localStorage.getItem("fields"));
 ///makes rows///////////////////////////////////////////
 for (var i = 0; i < times.length; i++) {
 var hourName = "hour" + i;
@@ -9,6 +10,13 @@ var savebutton= "savebutton" +i;
 var formsDiv = "individualForms" +i;
 
     console.log(hourName);
+
+    for()
+
+    $( "#individualForms0" ).text(function() {
+      return storedFields;
+      console.log("ran that boi");
+    });
 
 var $hourInput = $('.container').append('<div class="time-block">' +
     '<div class="row">' +
@@ -28,12 +36,12 @@ $('#savebutton' + i).append("SAVE");
     
 
 localStorage.setItem("fields", JSON.stringify($(this).siblings("textarea").val()));
-$('fields').textContent = words;
+// $('fields').textContent = words;
 
    console.log($(this).siblings("textarea").val());
    console.log(localStorage.fields);
-var storedFields = JSON.parse(localStorage.getItem("fields"));
-
+//var storedFields = JSON.parse(localStorage.getItem("fields"));
+//$(this).Text(storedFields);
    
 });
 
