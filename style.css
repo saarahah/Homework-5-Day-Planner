@@ -13,6 +13,7 @@ body {
   margin-left: auto;
   column-fill: auto;
   width: 100%;
+  background: transparent;
 }
 
 /* textarea{
