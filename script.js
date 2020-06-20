@@ -9,9 +9,28 @@ console.log("this is stored fields: " + storedFields);
 var tk = times.keys();
 
 for (x of tk) {
-  // document.getElementById("demo").innerHTML += x + "<br>";
-  console.log(x);
+
+  $("#individualForms" + x).text(function() {
+    console.log("ran that boi");
+    console.log("x is " + x);
+    return storedFields;
+    // console.log("ran that boi");
+    // console.log(x);
+  });
 }
+
+
+
+// if (storedFields) {
+
+//storedFields = JSON.parse(storedFields);
+
+// } else {
+
+//   storedFields = {}   // hour: info
+
+// }
+
 
 
 for (var i = 0; i < times.length; i=i+1) {
@@ -21,37 +40,6 @@ var savebutton=  i;
 var formsDiv = "individualForms" +i;
 console.log(i);
 
-
-
-// if(localStorage.getItem("savebutton"+[i]+"fields")!= null){
-//   storedFields[i]=localStorage.getItem("savebutton"+[i]+"fields");
-//   console.log("local storage variable name is: " + localStorage.getItem("savebutton"+[i]+"fields") + "i value is: " + i);   
-// } else {
-//   storedFields[i] = "";
-// }
-  //for(var i = 0; i <storedFields.length; i++){
-      // if(localStorage.getItem("savebutton"+[i]+"fields")!= undefined){
-      //       storedFields[i]=localStorage.getItem("savebutton"+[i]+"fields");
-      // }
-
-
- // }
-
-    // $( "#individualForms0" ).text(function() {
-    //   return storedFields;
-    //   console.log("ran that boi");
-    // });z
-
-
-  //   if (storedFields) {
-
-  //     storedFields = JSON.parse(storedFields);
-  
-  // } else {
-  
-  //     storedFields = {}   // hour: info
-  
-  // }
 
 
 var $hourInput = $('.container').append('<div class="time-block">' +
@@ -66,25 +54,36 @@ $('#hour' + i).append('<p>'+times[i]+'</p>');
  
 $('#savebutton' + i).append("SAVE");
   }
+for(i=0; i<times.length; i++){
+  if(localStorage.getItem(i)!=null){
+$('#individualForms'+i).text(localStorage.getItem(i))
+  }
+}
+
 ////////////////////////////////////////////////////////////////////
   $(document).on("click", ".saveBtn", function(e) {  
     alert("hello");
 
    //var buttonID= $(this).attr('id') + "fields";
 
-   var input = $(this).siblings(".textarea").val();
+    var input = $(this).siblings("textarea").val();
+
+  //var input = JSON.stringify($(this).siblings("textarea").val());
 
    var hour = $(this).attr("id")
-   console.log("hour = " + hour);
+   localStorage.setItem(hour, input);
+   console.log("trying this shit: " + localStorage.getItem(hour));
 
-   storedFields[hour] = input;
+
+
+  // storedFields[hour] = input;
 
   //  console.log(tasks)
 
-   localStorage.setItem("storedResponses", JSON.stringify(storedFields));
+  // localStorage.setItem("storedResponses", JSON.stringify(storedFields));
     
 
-// localStorage.setItem("storedResponses", JSON.stringify($(this).siblings("textarea").val()));
+ localStorage.setItem("storedResponses", JSON.stringify($(this).siblings("textarea").val()));
 
 
 //console.log(JSON.parse(localStorage.getItem("savebutton0fields")));
