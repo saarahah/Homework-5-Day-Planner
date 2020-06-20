@@ -1,8 +1,17 @@
 var container = $(".container");
 var times = ["9", "10", "11", "12", "1", "2", "3", "4", "5"];
 // var words = localStorage.getItem("fields");
-// var storedFields = JSON.parse(localStorage.getItem("fields"));
-var storedFields=[];
+ var storedFields = JSON.parse(localStorage.getItem("storedResponses"));
+// var storedFields=[];
+console.log("this is stored fields: " + storedFields);
+
+
+var tk = times.keys();
+
+for (x of tk) {
+  // document.getElementById("demo").innerHTML += x + "<br>";
+  console.log(x);
+}
 ///makes rows///////////////////////////////////////////
 
   // for(var i = 0; i < times.length; i++){
@@ -19,6 +28,7 @@ var hourName = "hour" + i;
 var textInput= "form" +i;
 var savebutton= "savebutton" +i;
 var formsDiv = "individualForms" +i;
+console.log(i);
 
 
 if(localStorage.getItem("savebutton"+[i]+"fields")!= null){
